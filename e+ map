@@ -1,0 +1,80 @@
+<?php
+
+
+
+$lat=$_GET['lat'];
+$long=$_GET['long'];
+
+
+
+$page="
+
+<html>
+<head>
+<script
+src='http://maps.googleapis.com/maps/api/js'>
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng($lat,$long);
+var i=9;
+function initialize()
+{
+var mapProp = {
+  center: myCenter,
+  zoom:i,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById('googleMap'),mapProp);
+
+var marker = new google.maps.Marker({
+  position: myCenter,
+  title:'Click to zoom'
+  });
+
+marker.setMap(map);
+
+// Zoom to 9 when clicking on marker
+google.maps.event.addListener(marker,'click',function() {
+i=i+2;
+  map.setZoom(i);
+  map.setCenter(marker.getPosition());
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<div id='googleMap' style='width:800px;height:580px;''></div>
+
+</body>
+</html>
+
+
+
+
+";
+
+
+
+
+echo $page;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
