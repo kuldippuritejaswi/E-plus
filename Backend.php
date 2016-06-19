@@ -1,5 +1,6 @@
 <?php
 
+
 //session_start();
 //$_SESSION["blat"]=9;
 //$_SESSION["blong"]=4;
