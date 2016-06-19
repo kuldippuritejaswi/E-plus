@@ -262,57 +262,57 @@ void gsm_msg_delete(String loc)
 
 
 //-----------------GPS FUNCTIONS------------------//
-//void gps_read()
-//{
-//  char a;// variable to read characters
-//  int coma_count;// variable to store ',' count in gps data reading
-//  if (mySerial.available()) // only enter if there is gps data available
-//  {
-//    for (a = mySerial.read(); a != '$' && mySerial.available(); a = mySerial.read()); // wait for '$' symbol that appear in first of a gps data
-//    delay(2);// small delay needed beteween each character read
-//    a = mySerial.read(); // read gps Serial data through 'gps' software serial
-//    if (a == 'G') ///////// the following section is to find "CPGGA" other datas neglected
-//    {
-//      delay(2);
-//      a = mySerial.read();
-//      if (a == 'P')
-//      {
-//        delay(2);
-//        a = mySerial.read();
-//        if (a == 'G')
-//        {
-//          delay(2);
-//          a = mySerial.read();
-//          if (a == 'G')
-//          {
-//            delay(2);
-//            a = mySerial.read();
-//            if (a == 'A') // if "CPGGA" detected read the following lattitude and longittude
-//            {
-//              lattitude = ""; // CLEAR "NO DATA" FROM STRING
-//              longitude = ""; // CLEAR "NO DATA" FROM STRING
-//              for (int i = 0, coma_count = 0; i < 47; i++) // only need 47 charater to be read to get lattitude and longittude
-//              {
-//                delay(2);
-//                a = mySerial.read();
-//                if (a == ',') // updating comma count
-//                {
-//                  coma_count++;
-//                }
-//                else if (coma_count >= 2 && coma_count <= 3) // the data between 2nd comma and 4 th comma is lattitude
-//                {
-//                  lattitude += a; // store lattitude data
-//                }
-//                else if (coma_count >= 4 && coma_count <= 5) // the data between 4th comma and 6 th comma is longitude
-//                {
-//                  longitude += a; //store longittude data
-//                }
-//              }
-//            }
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
+void gps_read()
+{
+  char a;// variable to read characters
+  int coma_count;// variable to store ',' count in gps data reading
+  if (mySerial.available()) // only enter if there is gps data available
+  {
+    for (a = mySerial.read(); a != '$' && mySerial.available(); a = mySerial.read()); // wait for '$' symbol that appear in first of a gps data
+    delay(2);// small delay needed beteween each character read
+    a = mySerial.read(); // read gps Serial data through 'gps' software serial
+    if (a == 'G') ///////// the following section is to find "CPGGA" other datas neglected
+    {
+      delay(2);
+      a = mySerial.read();
+      if (a == 'P')
+      {
+        delay(2);
+        a = mySerial.read();
+        if (a == 'G')
+        {
+          delay(2);
+          a = mySerial.read();
+          if (a == 'G')
+          {
+            delay(2);
+            a = mySerial.read();
+            if (a == 'A') // if "CPGGA" detected read the following lattitude and longittude
+            {
+              lattitude = ""; // CLEAR "NO DATA" FROM STRING
+              longitude = ""; // CLEAR "NO DATA" FROM STRING
+              for (int i = 0, coma_count = 0; i < 47; i++) // only need 47 charater to be read to get lattitude and longittude
+              {
+                delay(2);
+                a = mySerial.read();
+                if (a == ',') // updating comma count
+                {
+                  coma_count++;
+                }
+                else if (coma_count >= 2 && coma_count <= 3) // the data between 2nd comma and 4 th comma is lattitude
+                {
+                  lattitude += a; // store lattitude data
+                }
+                else if (coma_count >= 4 && coma_count <= 5) // the data between 4th comma and 6 th comma is longitude
+                {
+                  longitude += a; //store longittude data
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
