@@ -166,19 +166,19 @@ int sent_loc()
   char latt[7];
   char longi[6];
   int i;
-  //  for (i = 0; i < 5; i++)    // copying first 6 characters to latt array
-  //  {
-  //    latt[i] = lattitude[i];
-  //  }
-  //  latt[i] = '\0';
-  //  for (i = 0; i < 4; i++)    // copying first 5 characters to longi array
-  //  {
-  //    longi[i] = longitude[i];
-  //  }
-  //  longi[i] = '\0';
-   //Serial.println("AT+HTTPPARA=\"URL\",\"http://callambulance.esy.es/abc.php?alat=" + String(latt) + "&long=" + String(longi) + " \"");
-  // Serial.println("AT+HTTPPARA=\"URL\",\"http://techant.co.in/ext/botz/p1/pg1.aspx?a=0959&b=07617\"");
-  Serial.println("AT+HTTPPARA=\"URL\",\"http://callambulance.esy.es/abc.php?alat=0959&along=07617999\"");
+    for (i = 0; i < 5; i++)    // copying first 6 characters to latt array
+    {
+      latt[i] = lattitude[i];
+    }
+    latt[i] = '\0';
+    for (i = 0; i < 4; i++)    // copying first 5 characters to longi array
+    {
+      longi[i] = longitude[i];
+    }
+    longi[i] = '\0';
+   Serial.println("AT+HTTPPARA=\"URL\",\"http://callambulance.esy.es/abc.php?alat=" + String(latt) + "&long=" + String(longi) + " \"");
+ 
+  //Serial.println("AT+HTTPPARA=\"URL\",\"http://callambulance.esy.es/abc.php?alat=0959&along=07617999\"");
   char back = Serial.read();
   while (back != 'E' && back != 'K')   // wait until a ERROR/OK return
   {
