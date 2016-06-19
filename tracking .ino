@@ -3,7 +3,8 @@
 SoftwareSerial mySerial(10, 11); // RX, TX
 int YES = 0, NO = 1;
 //char lattitude = "", longitude;
-String latt="72.14",longi = "82.11";
+String latt="72.14",longi = "82.11"; // temporarily hardcoded, accquiring commented
+//string latt,longi;
 void setup() {
   mySerial.begin(9600);
   Serial.begin(9600);
