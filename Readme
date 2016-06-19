@@ -1,0 +1,3 @@
+This module allows vehicle on board units to detect accidents and send the notification along with location to server which in turns finds the nearest ambulance in area .
+for simplicity purposer we have harcoded two ambulances whose location can be change similar to how the accident vehicle sends infrmation using 
+HTTP get method url . The nearest ambulance is currently informed about the accident along with patient details and a google map with location embededded on it .
